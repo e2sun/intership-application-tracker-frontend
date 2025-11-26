@@ -5,6 +5,7 @@ import { ApplicationsListComponent } from './applications-list/applications-list
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [ 
     RouterOutlet,
     CompanyComponent,

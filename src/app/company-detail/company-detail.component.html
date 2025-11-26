@@ -1,0 +1,25 @@
+<div class = "company-detail">
+    <a routerLink="/companies"> Back to companies </a>
+
+    <div *ngIf="loading"> Loading company...</div>
+    <div *ngIf="error"> {{ error }} </div>
+
+    <div *ngIf="company">
+        <h2> {{ company.name }} </h2>
+        <p *ngIf="company.location">
+            <strong> Location: </strong> {{ company.location}}
+        </p>
+        <p *ngIf="company.website">
+            <strong> Wesbite: </strong> 
+            <a [href] = "company.website" target="_blank"> {{ company.website }} </a>
+        </p>
+        <p *ngIf = "company.notes">
+            <strong> Notes: </strong> {{ company.notes }}
+        </p>
+
+        <hr />
+
+        <h3> Applications </h3>
+        <app-applications-list [companyId]="companyId"></app-applications-list>
+    </div>
+</div>

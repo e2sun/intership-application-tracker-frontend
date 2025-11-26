@@ -1,19 +1,24 @@
-<div *ngIf="loading"> Loading applications...</div>
-<div *ngIf="error"> {{ error }} </div>
+<div class = "applications-list">
+    <div *ngIf="loading"> Loading applications...</div>
+    <div *ngIf="error"> {{ error }} </div>
 
-<ul *ngIf = "!loading && !error">
-  <li *ngFor= "let application of applications">
-    <strong> {{ application.roleTitle }}</strong>
-    <span> - {{ application.dateApplied }} </span>
-    <div> {{ application.status }} </div>
-    <div *ngIf = "application.portalLink">
-      <a [href] = "application.portalLink" target = "_blank"> Portal Link </a>
-    </div>
-    <div *ngIf = "application.notes">
-      Notes: {{ application.notes }}
-    </div> 
-    <hr />
-  </li>
-</ul>
+    <ul *ngIf = "!loading && !error">
+    <li *ngFor= "let application of applications">
+        <strong> {{ application.roleTitle }}</strong>
+        <span> - {{ application.dateApplied }} </span>
+        <div> {{ application.status }} </div>
+        <div *ngIf = "application.portalLink">
+        <a [href] = "application.portalLink" target = "_blank"> Portal Link </a>
+        </div>
+        <div *ngIf = "application.notes">
+        Notes: {{ application.notes }}
+        </div> 
+        <hr />
+    </li>
+    </ul>
+    <p *ngIf="!loading && !error && applications.length === 0">
+        No applications yet for this company.
+    </p>
+</div>
 
 
