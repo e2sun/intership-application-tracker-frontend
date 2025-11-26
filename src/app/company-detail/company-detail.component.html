@@ -1,25 +1,25 @@
 <div class = "company-detail">
-    <div *ngIf="loading"> Loading company...</div>
-    <div *ngIf="error"> {{ error }} </div>
+    <div *ngIf="loading" class="status-text"> Loading company...</div>
+    <div *ngIf="error" class="status-text error"> {{ error }} </div>
 
-    <div *ngIf="company">
-        <h2> {{ company.name }} </h2>
-        <p *ngIf="company.location">
+    <div *ngIf="company" class="company-card">
+        <h2 class="company-name"> {{ company.name }} </h2>
+        <p *ngIf="company.location" class="company-field">
             <strong> Location: </strong> {{ company.location}}
         </p>
-        <p *ngIf="company.website">
+        <p *ngIf="company.website" class="company-field">
             <strong> Wesbite: </strong> 
             <a [href] = "company.website" target="_blank"> {{ company.website }} </a>
         </p>
-        <p *ngIf = "company.notes">
+        <p *ngIf = "company.notes" class="company-field">
             <strong> Notes: </strong> {{ company.notes }}
         </p>
 
-        <hr />
+        <hr class="company-divider"/>
 
-        <h3> Applications </h3>
+        <h3 class="applications-title"> Applications </h3>
         <app-applications-list [companyId]="companyId"></app-applications-list>
 
-        <a routerLink="/companies"> Back to companies </a>
+        <a routerLink="/companies" class="back-link"> ← Back to companies </a>
     </div>
 </div>

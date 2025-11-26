@@ -1,0 +1,77 @@
+.applications-list {
+    margin-top: 0.5rem;
+}
+
+/* generic status text for loading/error/empty */
+.status-text {
+    text-align: center;
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.status-text.error {
+    color: #b00020;
+}
+
+/* List container & items */
+.applications-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.application-item {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #e0e4ec;
+    /* thin divider between apps */
+}
+
+/* Header row: title + status pill */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role-title {
+    font-weight: 500;
+    font-size: 0.98rem;
+}
+
+/* Status pill */
+.status-badge {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background-color: #e5edff;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Metadata row */
+.app-meta {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: #555;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.app-meta a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.app-meta a:hover {
+    text-decoration: underline;
+}
+
+/* Notes text */
+.app-notes {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    color: #444;
+}

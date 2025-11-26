@@ -1,13 +1,21 @@
 
-<div class = "company-list">
-  <h2>Companies</h2>
-
+<div class = "company-page">
+  
   <div *ngIf="loading"> Loading companies ...</div>
   <div *ngIf="error"> {{ error }} </div>
 
-  <ul *ngIf = "!loading && !error">
-    <li *ngFor= "let company of companies" [routerLink] = "['/companies', company.id]">
-      <strong> {{ company.name }}</strong>
-    </li>
-  </ul>
+  <div *ngIf = "!loading && !error && companies.length > 0" class="company-buttons">
+    <button 
+      class="company-button"
+      *ngFor= "let company of companies"
+      [routerLink] = "['/companies', company.id]"
+    >
+      {{ company.name }}
+    </button>
+  </div>
+
+  <p *ngIf="!loading && !error && companies.length === 0" class="status-text">
+    No companies yet. Add one to get started.
+  </p>
+
 </div>
