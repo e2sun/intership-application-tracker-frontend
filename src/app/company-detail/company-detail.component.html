@@ -1,6 +1,4 @@
 <div class = "company-detail">
-    <a routerLink="/companies"> Back to companies </a>
-
     <div *ngIf="loading"> Loading company...</div>
     <div *ngIf="error"> {{ error }} </div>
 
@@ -21,5 +19,7 @@
 
         <h3> Applications </h3>
         <app-applications-list [companyId]="companyId"></app-applications-list>
+
+        <a routerLink="/companies"> Back to companies </a>
     </div>
 </div>

@@ -1,10 +1,14 @@
 import { Routes } from '@angular/router';
 import { CompanyComponent } from './company/company.component';
 import { CompanyDetailComponent } from './company-detail/company-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'companies', pathMatch: 'full'},
+    {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     
+    //dashboard page
+    {path: 'dashboard', component: DashboardComponent},
+
     //companies list page
     {path: 'companies', component: CompanyComponent },
 
@@ -13,5 +17,5 @@ export const routes: Routes = [
 
 
     // fallback
-    { path: '**', redirectTo: 'companies' }   
+    { path: '**', redirectTo: 'dashboard' }   
 ];

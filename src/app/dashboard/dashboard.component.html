@@ -1,0 +1,20 @@
+<div class="dashboard">
+    <h2> Dashboard </h2>
+
+    <div *ngIf="loading"> Loading dashboard...</div>
+    <div *ngIf="error" class="error"> {{ error }} </div>
+
+    <div *ngIf="!loading && !error">
+        <div class="card">
+            <h3> Total Companies </h3>
+            <p class="big-number"> {{ totalCompanies }} </p>
+            <a routerLink="/companies"> View companies -> </a>
+        </div>
+        <div class="card">
+            <h3> Total Applications </h3>
+            <p class="big-number"> {{ totalApplications }} </p>
+            <!-- <a routerLink="/companies"> View applications -> </a> -->
+        </div>
+
+    </div>
+</div>
