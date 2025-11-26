@@ -1,45 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { CompanyService } from './company.service';
-import { CommonModule } from '@angular/common';   
-import { Company } from './company.model';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CompanyComponent } from './company/company.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
+  imports: [ 
+    RouterOutlet,
+    CompanyComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Internship Application Tracker';
-  companies: Company[] = [];
-  loading = false;
-  error: string | null = null;
-
-  constructor(private companyService: CompanyService){}
-
-  ngOnInit(): void {
-    this.fetchCompanies();
-  }
-
-  // call service 
-  fetchCompanies(): void {
-    this.loading = true;
-    this.error = null;
-
-    this.companyService.getCompanies().subscribe({
-      next: (data) => {
-        this.companies = data;
-        this.loading = false;
-      },
-      error: (err) => {
-        console.error('Error fetching companies', err);
-        this.error = 'Failed to load companies';
-        this.loading = false;
-      },
-    });
-  }
-
 }

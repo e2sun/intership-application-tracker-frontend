@@ -1,0 +1,17 @@
+
+<div *ngIf="loading"> Loading companies ...</div>
+<div *ngIf="error"> {{ error }} </div>
+
+<ul *ngIf = "!loading && !error">
+  <li *ngFor= "let company of companies">
+    <strong> {{ company.name }}</strong>
+    <span *ngIf="company.location"> - {{ company.location }} </span>
+    <div *ngIf = "company.website">
+      <a [href] = "company.website" target = "_blank"> Website </a>
+    </div>
+    <div *ngIf = "company.notes">
+      Notes: {{ company.notes }}
+    </div> 
+    <hr />
+  </li>
+</ul>
