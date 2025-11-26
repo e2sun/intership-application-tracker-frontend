@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Company } from './company.model';  
 import { CompanyService } from './company.service';
 import { CommonModule } from '@angular/common'; 
+import { ApplicationsListComponent } from '../applications-list/applications-list.component';
 
 @Component({
   selector: 'app-company',
   standalone: true,
   imports: [ 
-    CommonModule
+    CommonModule,
+    ApplicationsListComponent
   ],
   templateUrl: './company.component.html',
   styleUrl: './company.component.css'
@@ -16,6 +18,8 @@ export class CompanyComponent implements OnInit {
     companies: Company[] = [];
     loading = false;
     error: string | null = null;
+
+    selectedCompany: Company | null = null;
 
     constructor(private companyService: CompanyService){}
 
@@ -39,6 +43,10 @@ export class CompanyComponent implements OnInit {
             this.loading = false;
         },
         });
+    }
+
+    onSelectedCompany(company: Company):void {
+        this.selectedCompany = company;
     }
 
 }

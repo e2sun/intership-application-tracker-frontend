@@ -16,5 +16,12 @@ export class ApplicationService {
     getApplications(): Observable<Application[]> {
         return this.http.get<Application[]>(this.apiUrl);
     }
+
+    getApplicationsByCompany(companyId: number): Observable<Application[]>{
+      const url = `${this.apiUrl}/companyId=${companyId}`
+      return this.http.get<Application[]>(url);
+    }
+
+
   
 }

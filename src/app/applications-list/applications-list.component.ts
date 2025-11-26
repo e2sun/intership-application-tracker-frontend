@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Application } from './application.model';
 import { ApplicationService } from './application.service';
 import { CommonModule } from '@angular/common';
@@ -13,15 +13,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './applications-list.component.css'
 })
 
-export class ApplicationsListComponent implements OnInit{
+export class ApplicationsListComponent implements OnChanges{
+  @Input() companyId!: number;
+
   applications: Application[] = [];
   loading = false;
   error: string | null = null;
 
   constructor(private applicationService: ApplicationService){}
 
-  ngOnInit(): void {
-    this.fetchApplications();
+  ngOnChanges(): void {
+    if (this.companyId){
+      this.fetchApplications();
+    }
   }
 
   // call service 
@@ -29,7 +33,7 @@ export class ApplicationsListComponent implements OnInit{
     this.loading = true;
     this.error = null;
 
-    this.applicationService.getApplications().subscribe({
+    this.applicationService.getApplicationsByCompany(this.companyId).subscribe({
     next: (data) => {
         this.applications = data;
         this.loading = false;
