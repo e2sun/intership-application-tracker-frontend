@@ -46,4 +46,14 @@ export class ApplicationsListComponent implements OnChanges{
     });
   }
 
+  statusClass(status: string | undefined): string {
+    if (!status) return '';
+    const s = status.toLowerCase();
+    if (s=="applied") return 'status-applied';
+    if (s=="interview") return 'status-interview';
+    if (s=="offer") return 'status-offer';
+    if (s=="rejected") return 'status-rejected';
+    return '';
+  }
+
 }

@@ -5,7 +5,7 @@ export interface Application {
     id: number,
     roleTitle: string,
     dateApplied: string,
-    status: String,
+    status: string,
     portalLink?: string,
     notes?: string;
     company?: Company; // linked company

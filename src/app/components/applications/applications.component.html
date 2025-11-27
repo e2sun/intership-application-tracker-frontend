@@ -16,10 +16,21 @@
 
         <li *ngFor="let application of applications" class="application-item">
             <div class="app-header">
-                <h3> {{ application.company?.name || 'Unknown company' }} </h3>
-                <span class="role-title"> {{ application.roleTitle }} </span>
-                <span class="status-badge"> {{ application.status }} </span>
+                <h3>{{ application.company?.name || 'Unknown company' }}</h3>
+
+                <span class="role-title">{{ application.roleTitle }}</span>
+
+                <div class="status-editor">
+                    <select class="status-select" [ngClass]="statusClass(application.status)"
+                        [(ngModel)]="application.status" (ngModelChange)="onStatusChange(application)">
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
             </div>
+
 
             <div class="app-meta">
                 <div> {{ application.dateApplied }} </div>

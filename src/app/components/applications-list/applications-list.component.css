@@ -38,17 +38,6 @@
     font-size: 0.98rem;
 }
 
-/* Status pill */
-.status-badge {
-    font-size: 0.75rem;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    background-color: #e5edff;
-    color: #1e3a8a;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
-
 /* Metadata row */
 .app-meta {
     margin-top: 0.25rem;
@@ -74,4 +63,44 @@
     margin-top: 0.35rem;
     font-size: 0.9rem;
     color: #444;
+}
+
+/* Status pill */
+.status-badge{
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background-color: #e5edff;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+/* remove blue outline but keep accessible focus
+.status-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
+} */
+
+/* Applied – blue (your current style) */
+.status-applied {
+    background-color: #e5edff;
+    color: #1e3a8a;
+}
+
+/* Interview – yellow */
+.status-interview {
+    background-color: #fff7e0;
+    color: #92400e;
+}
+
+/* Offer – green */
+.status-offer {
+    background-color: #e6f4ea;
+    color: #166534;
+}
+
+/* Rejected – red */
+.status-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
 }

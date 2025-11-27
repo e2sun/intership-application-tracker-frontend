@@ -48,16 +48,67 @@
     font-size: 0.95rem;
 }
 
-/* status pill */
-.status-badge {
+/* status dropdown: pill select with arrow */
+.status-editor {
+    display: flex;
+    align-items: center;
+}
+
+/* base pill styling */
+.status-select {
     font-size: 0.75rem;
-    padding: 0.15rem 0.55rem;
+    padding: 0.2rem 1.6rem 0.2rem 0.7rem;  /* extra right padding for arrow */
     border-radius: 999px;
-    background-color: #e5edff;
-    color: #1e3a8a;
+    border: 1px solid transparent;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+    cursor: pointer;
+
+    /* remove native styles as much as possible */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 0.55rem auto;
 }
+
+/* tiny arrow using a simple SVG data URL */
+.status-select {
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23333' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* remove blue outline but keep accessible focus */
+.status-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
+}
+
+/* Applied – blue (your current style) */
+.status-applied {
+    background-color: #e5edff;
+    color: #1e3a8a;
+}
+
+/* Interview – yellow */
+.status-interview {
+    background-color: #fff7e0;
+    color: #92400e;
+}
+
+/* Offer – green */
+.status-offer {
+    background-color: #e6f4ea;
+    color: #166534;
+}
+
+/* Rejected – red */
+.status-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
 
 /* meta row (date + link) */
 .app-meta {

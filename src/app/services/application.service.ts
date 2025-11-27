@@ -22,6 +22,12 @@ export class ApplicationService {
       return this.http.get<Application[]>(url);
     }
 
+    // update application
+    updateApplication(app: Application): Observable<Application>{ 
+      const url = `${this.apiUrl}/${app.id}`;
+      return this.http.put<Application>(url, app);
+    }
+
 
   
 }
