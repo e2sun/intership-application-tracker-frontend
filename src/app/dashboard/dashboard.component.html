@@ -38,12 +38,18 @@
             <p class="mid-number"> {{ rejected }} </p>
         </div>
         <div class="card wide">
-            <h3> Top Companies </h3>
+            <h3>Top Companies</h3>
             <ul>
-                <li *ngFor="let c of topCompanies">
-                    {{ c.name }} - <strong> {{ c.count }}</strong> applications
-                </li>
+              <li *ngFor="let c of topCompanies">
+                <span class="company-name">{{ c.name }}</span>
+                <span class="company-count">
+                  <strong>{{ c.count }}</strong>
+                  <span class="company-count-label">
+                    {{ c.count === 1 ? 'application' : 'applications' }}
+                  </span>
+                </span>
+              </li>
             </ul>
-        </div>
+          </div>          
     </div>
 </div>

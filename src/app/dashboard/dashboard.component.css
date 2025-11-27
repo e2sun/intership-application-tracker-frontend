@@ -89,22 +89,38 @@
     padding: 10px 0;
     border-bottom: 1px solid #e6e6e6;
     font-size: 17px;
+
     display: flex;
-    justify-content: space-between;
-    color: #2c3e50;
+    justify-content: space-between;  /* name left, count right */
+    align-items: center;
 }
 
 .card.wide li:last-child {
     border-bottom: none;
 }
 
-/* Make company name & count visually distinct */
-.card.wide li strong {
+.company-name {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.company-count {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.company-count strong {
     color: #3498db;
     font-weight: 700;
 }
 
-/* Link styling */
+.company-count-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Links inside cards */
 .card a {
     text-decoration: none;
     color: #2980b9;
