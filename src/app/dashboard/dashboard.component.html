@@ -1,20 +1,49 @@
 <div class="dashboard">
     <h2> Dashboard </h2>
 
-    <div *ngIf="loading"> Loading dashboard...</div>
-    <div *ngIf="error" class="error"> {{ error }} </div>
+    <div *ngIf="loading" class="status-text"> Loading dashboard...</div>
+    <div *ngIf="error" class="status-text error"> {{ error }} </div>
 
-    <div *ngIf="!loading && !error">
+    <div *ngIf="!loading && !error" class="grid">
+        <!-- Total Companies -->
         <div class="card">
             <h3> Total Companies </h3>
             <p class="big-number"> {{ totalCompanies }} </p>
-            <a routerLink="/companies"> View companies -> </a>
+            <a routerLink="/companies"> View companies → </a>
         </div>
+        <!-- Total Applications -->
         <div class="card">
             <h3> Total Applications </h3>
             <p class="big-number"> {{ totalApplications }} </p>
             <!-- <a routerLink="/companies"> View applications -> </a> -->
         </div>
-
+        <!-- Applied -->
+        <div class="card small">
+            <h4> Applied </h4>
+            <p class="mid-number"> {{ applied }} </p>
+        </div>
+        <!-- Interviewing -->
+        <div class="card small">
+            <h4> Interviewing </h4>
+            <p class="mid-number"> {{ interviewing }} </p>
+        </div>
+        <!-- Offers -->
+        <div class="card small">
+            <h4> Offers </h4>
+            <p class="mid-number"> {{ offers }} </p>
+        </div>
+        <!-- Rejected -->
+        <div class="card small">
+            <h4> Rejected </h4>
+            <p class="mid-number"> {{ rejected }} </p>
+        </div>
+        <div class="card wide">
+            <h3> Top Companies </h3>
+            <ul>
+                <li *ngFor="let c of topCompanies">
+                    {{ c.name }} - <strong> {{ c.count }}</strong> applications
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
