@@ -31,16 +31,25 @@ export class CompanyComponent implements OnInit {
         this.error = null;
 
         this.companyService.getCompanies().subscribe({
-        next: (data) => {
-            this.companies = data;
-            this.loading = false;
-        },
-        error: (err) => {
-            console.error('Error fetching companies', err);
-            this.error = 'Failed to load companies';
-            this.loading = false;
-        },
+            next: (data) => {
+                this.companies = data;
+                this.sortCompanies();
+                this.loading = false;
+            },
+            error: (err) => {
+                console.error('Error fetching companies', err);
+                this.error = 'Failed to load companies';
+                this.loading = false;
+            },
         });
+    }
+
+    sortCompanies() {
+        this.companies.sort((a,b)=>{
+            const nameA = (a.name || '').toLowerCase();
+            const nameB = (b.name || '').toLowerCase();
+            return nameA.localeCompare(nameB);   // A–Z
+        })
     }
 
 }

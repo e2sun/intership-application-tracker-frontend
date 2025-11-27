@@ -3,11 +3,11 @@ import { Company } from "./company.model";
 
 export interface Application {
     id: number,
-    roleTitle: String,
-    dateApplied: String,
+    roleTitle: string,
+    dateApplied: string,
     status: String,
-    portalLink?: String,
-    notes?: String;
+    portalLink?: string,
+    notes?: string;
     company?: Company; // linked company
 }
 

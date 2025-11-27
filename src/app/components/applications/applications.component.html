@@ -1,28 +1,36 @@
-<div class = "applications-list">
-    <div *ngIf="loading" class="status-text"> Loading applications...</div>
-    <div *ngIf="error" class="status-text error"> {{ error }} </div>
+<div class="applications-list">
 
-    <ul *ngIf = "!loading && !error && applications.length > 0">
-        <li *ngFor= "let application of applications" class="application-item">
+    <div class="applications-header" *ngIf="!loading && !error">
+        <h2>Applications</h2>
+
+        <div class="sorting-buttons" *ngIf="applications.length > 0">
+            <button (click)="sortByNewest()">Newest</button>
+            <button (click)="sortByOldest()">Oldest</button>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="status-text">Loading applications...</div>
+    <div *ngIf="error" class="status-text error">{{ error }}</div>
+
+    <ul *ngIf="!loading && !error && applications.length > 0">
+
+        <li *ngFor="let application of applications" class="application-item">
             <div class="app-header">
                 <h3> {{ application.company?.name || 'Unknown company' }} </h3>
                 <span class="role-title"> {{ application.roleTitle }} </span>
                 <span class="status-badge"> {{ application.status }} </span>
             </div>
-            
+
             <div class="app-meta">
                 <div> {{ application.dateApplied }} </div>
             </div>
 
-            <a *ngIf = "application.portalLink" [href] = "application.portalLink" target = "_blank"> Portal Link </a>
-        
-            <p *ngIf = "application.notes" class="app-notes"> Notes: {{ application.notes }} </p>
+            <a *ngIf="application.portalLink" [href]="application.portalLink" target="_blank"> Portal Link </a>
+
+            <p *ngIf="application.notes" class="app-notes"> Notes: {{ application.notes }} </p>
         </li>
     </ul>
     <p class="status-text" *ngIf="!loading && !error && applications.length === 0">
-        No applications yet for this company.
+        No applications yet.
     </p>
 </div>
-
-
-
