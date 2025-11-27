@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApplicationsListComponent } from '../applications-list/applications-list.component';
-import { CompanyService } from '../company/company.service';
+import { ApplicationsListComponent } from '../applications-list.component';
+import { CompanyService } from '../../services/company.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { Company } from '../company/company.model';
+import { Company } from '../../models/company.model';
 
 
 @Component({

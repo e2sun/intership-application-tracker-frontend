@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { Application } from './application.model';
-import { ApplicationService } from './application.service';
+import { ApplicationService } from '../services/application.service';
 import { CommonModule } from '@angular/common';
+import { Application } from '../models/application.model';
 
 @Component({
   selector: 'app-applications-list',

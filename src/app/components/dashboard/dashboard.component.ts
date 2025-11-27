@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule } from '@angular/router';
-import { CompanyService } from '../company/company.service';
-import { ApplicationService } from '../applications-list/application.service';
+import { CompanyService } from '../../services/company.service';
+import { ApplicationService } from '../../services/application.service';
 
 @Component({
   selector: 'app-dashboard',
