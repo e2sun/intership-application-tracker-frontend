@@ -21,6 +21,10 @@ export class ApplicationsComponent implements OnInit {
   loading = false;
   error: string | null = null;
 
+  pendingDeleteApp: Application | null = null;
+  showConfirm = false;
+  confirmMessage='';
+
   constructor(private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
@@ -83,32 +87,54 @@ export class ApplicationsComponent implements OnInit {
     return '';
   }
 
-  deleteApplication(app: Application): void{
+  openDeleteConfirm(app: Application): void {
     if (!app.id) {
       console.error('Cannot delete application without id', app);
       return;
     }
 
     const companyName = app.company?.name || 'this company';
+    this.pendingDeleteApp = app;
+    this.confirmMessage =  `Delete application "${app.roleTitle}" for "${companyName}"?`;
+    this.showConfirm = true;
+  }
 
-    // confirm dialog
-    const confirmDelete = confirm(
-      `Delete application "${app.roleTitle}" for "${companyName}"?`
-    );
-    if (!confirmDelete) return;
+  confirmDelete(): void {
+    if (!this.pendingDeleteApp || !this.pendingDeleteApp.id){
+      this.showConfirm = false;
+      return;
+    }
 
-    this.applicationService.deleteApplication(app.id).subscribe({
+    const id = this.pendingDeleteApp.id;
+
+    if (id === undefined || id === null) {
+      console.error('Cannot delete application without id', this.pendingDeleteApp);
+      this.showConfirm = false;
+      return;
+    }
+
+    this.applicationService.deleteApplication(id).subscribe({
       next:()=>{
-        this.applications = this.applications.filter(a => a.id !== app.id);
+        this.applications = this.applications.filter(a => a.id !== id);
+        this.showConfirm = false;
+        this.pendingDeleteApp = null;
       },
       error:(err)=> {
         console.error('Failed to delete application', err);
         this.error = 'Failed to delete application. Please try again.';
+        this.showConfirm = false;
       }
     });
   }
-   
+
+  cancelDelete(): void {
+    this.showConfirm = false;
+    this.pendingDeleteApp = null;
+  }
+    
 }
+   
+
 
 
 

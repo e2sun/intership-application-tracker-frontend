@@ -1,5 +1,22 @@
 <div class="applications-list">
 
+    <!-- Confirm delete modal -->
+    <div class="confirm-backdrop" *ngIf="showConfirm">
+        <div class="confirm-modal">
+        <h3>Confirm deletion</h3>
+        <p>{{ confirmMessage }}</p>
+    
+        <div class="confirm-actions">
+            <button class="confirm-delete" (click)="confirmDelete()">
+            Delete
+            </button>
+            <button class="confirm-cancel" (click)="cancelDelete()">
+            Cancel
+            </button>
+        </div>
+        </div>
+    </div>
+  
     <div class="applications-header" *ngIf="!loading && !error">
         <h2>Applications</h2>
 
@@ -46,7 +63,7 @@
                     </a>
                 </div>
 
-                <button class="delete-button" (click)="deleteApplication(application)">
+                <button class="delete-button" (click)="openDeleteConfirm(application)">
                     Delete application
                 </button>
             </div>
