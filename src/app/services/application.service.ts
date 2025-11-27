@@ -32,4 +32,9 @@ export class ApplicationService {
       return this.http.post<Application>(this.apiUrl, application);
     }
 
+    deleteApplication(id: number){
+      const url = `${this.apiUrl}/${id}`;
+      return this.http.delete<void>(url);
+    }
+
 }

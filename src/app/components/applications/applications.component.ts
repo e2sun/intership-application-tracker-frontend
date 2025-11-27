@@ -82,6 +82,31 @@ export class ApplicationsComponent implements OnInit {
     if (s=="rejected") return 'status-rejected';
     return '';
   }
+
+  deleteApplication(app: Application): void{
+    if (!app.id) {
+      console.error('Cannot delete application without id', app);
+      return;
+    }
+
+    const companyName = app.company?.name || 'this company';
+
+    // confirm dialog
+    const confirmDelete = confirm(
+      `Delete application "${app.roleTitle}" for "${companyName}"?`
+    );
+    if (!confirmDelete) return;
+
+    this.applicationService.deleteApplication(app.id).subscribe({
+      next:()=>{
+        this.applications = this.applications.filter(a => a.id !== app.id);
+      },
+      error:(err)=> {
+        console.error('Failed to delete application', err);
+        this.error = 'Failed to delete application. Please try again.';
+      }
+    });
+  }
    
 }
 

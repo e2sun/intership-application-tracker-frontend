@@ -43,10 +43,33 @@
     align-items: center;
 }
 
-.role-title {
-    font-weight: 500;
-    font-size: 0.95rem;
+/* whole title line */
+.app-title {
+    margin: 0 0 0.2rem;
+    font-size: 1.1rem;
+    /* overall h3 size */
+    font-weight: 600;
+    color: #1f2933;
 }
+
+/* company part (left) */
+.app-title .company-name {
+    font-weight: 700;
+    /* slightly bolder */
+}
+
+/* the " - " separator */
+.app-title .title-separator {
+    margin: 0 0.25rem;
+}
+
+/* role part (right) – smaller + softer */
+.app-title .role-title-inline {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
 
 /* status dropdown: pill select with arrow */
 .status-editor {
@@ -57,7 +80,8 @@
 /* base pill styling */
 .status-select {
     font-size: 0.75rem;
-    padding: 0.2rem 1.6rem 0.2rem 0.7rem;  /* extra right padding for arrow */
+    padding: 0.2rem 1.6rem 0.2rem 0.7rem;
+    /* extra right padding for arrow */
     border-radius: 999px;
     border: 1px solid transparent;
     text-transform: uppercase;
@@ -111,13 +135,39 @@
 
 
 /* meta row (date + link) */
+/* footer row: date/link left, delete button right */
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.35rem;
+}
+
+/* meta row stays mostly the same but inline with button */
+/* footer row: date/link left, delete button right */
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.35rem;
+}
+
+/* meta row stays mostly the same but inline with button */
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0.35rem;
+}
+
+/* stack date over link, left-aligned */
 .app-meta {
-    margin-top: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
     font-size: 0.85rem;
     color: #555;
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
 }
 
 .app-meta a {
@@ -129,6 +179,25 @@
 .app-meta a:hover {
     text-decoration: underline;
 }
+
+/* delete button stays right */
+.delete-button {
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid #fca5a5;
+    background-color: #fef2f2;
+    color: #b91c1c;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.delete-button:hover {
+    background-color: #fee2e2;
+    border-color: #f87171;
+}
+
+
 
 /* notes */
 .app-notes {

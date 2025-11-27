@@ -17,9 +17,15 @@
 
         <li *ngFor="let application of applications" class="application-item">
             <div class="app-header">
-                <h3>{{ application.company?.name || 'Unknown company' }}</h3>
-
-                <span class="role-title">{{ application.roleTitle }}</span>
+                <h3 class="app-title">
+                    <span class="company-name">
+                        {{ application.company?.name || 'Unknown company' }}
+                    </span>
+                    <span class="title-separator"> - </span>
+                    <span class="role-title-inline">
+                        {{ application.roleTitle }}
+                    </span>
+                </h3>
 
                 <div class="status-editor">
                     <select class="status-select" [ngClass]="statusClass(application.status)"
@@ -32,15 +38,24 @@
                 </div>
             </div>
 
+            <div class="app-footer">
+                <div class="app-meta">
+                    <div>{{ application.dateApplied }}</div>
+                    <a *ngIf="application.portalLink" [href]="application.portalLink" target="_blank">
+                        Portal Link
+                    </a>
+                </div>
 
-            <div class="app-meta">
-                <div> {{ application.dateApplied }} </div>
+                <button class="delete-button" (click)="deleteApplication(application)">
+                    Delete application
+                </button>
             </div>
 
-            <a *ngIf="application.portalLink" [href]="application.portalLink" target="_blank"> Portal Link </a>
-
-            <p *ngIf="application.notes" class="app-notes"> Notes: {{ application.notes }} </p>
+            <p *ngIf="application.notes" class="app-notes">
+                Notes: {{ application.notes }}
+            </p>
         </li>
+
     </ul>
     <p class="status-text" *ngIf="!loading && !error && applications.length === 0">
         No applications yet.
