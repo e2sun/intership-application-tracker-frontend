@@ -1,5 +1,13 @@
 
 <div class = "company-page">
+
+  <div class="companies-header" *ngIf="!loading && !error">
+    <h2>Companies</h2>
+
+    <div class="create-company-button">
+      <button routerLink="/create-company">Create Company</button>
+    </div>
+  </div>
   
   <div *ngIf="loading"> Loading companies ...</div>
   <div *ngIf="error"> {{ error }} </div>

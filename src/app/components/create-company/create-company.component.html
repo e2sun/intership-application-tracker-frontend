@@ -1,0 +1,65 @@
+<div class = "create-company-page">
+    <h2 class="companies-header"> Add a Company </h2>
+  
+    <div *ngIf="loading" class="status-text"> Saving company...</div>
+    <div *ngIf="error" class="status-text error"> {{ error }} </div>
+
+    <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
+        <div class="form-field">
+            <label for="name"> Name *</label>
+            <input
+                id="name"
+                type="text"
+                name="name"
+                required
+                [(ngModel)] = "newCompany.name"
+            />
+        </div>
+
+        <div class="form-field">
+            <label for="location"> Location </label>
+            <input
+                id="location"
+                type="text"
+                name="location"
+                [(ngModel)] = "newCompany.location"
+            />
+        </div>
+
+        <div class="form-field">
+            <label for="website"> Website </label>
+            <input
+                id="website"
+                type="url"
+                name="website"
+                [(ngModel)] = "newCompany.website"
+            />
+        </div>
+
+        <div class="form-field">
+            <label for="notes"> Notes </label>
+            <textarea
+                id="notes"
+                type="text"
+                name="notes"
+                rows="6"
+                [(ngModel)] = "newCompany.notes"
+            ></textarea>
+        </div>
+
+        <div class="actions">
+            <button type="submit" [disabled] = "loading || !companyForm.form.valid">
+                {{ loading ? 'Saving...': 'Create Company'}}
+            </button>
+            <button type="button" routerLink="/companies">
+                Cancel
+            </button>
+        </div>
+
+
+    </form>
+  
+    
+  
+  </div>
+  
