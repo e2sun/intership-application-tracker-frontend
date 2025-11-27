@@ -1,0 +1,58 @@
+<div class="create-application-page">
+    <h2 class="applications-header"> Add an Application </h2>
+
+    <div *ngIf="loading" class="status-text"> Saving application...</div>
+    <div *ngIf="error" class="status-text error"> {{ error }} </div>
+
+    <form (ngSubmit)="onSubmit()" #applicationForm="ngForm">
+        <div class="form-field">
+            <label for="company"> Company *</label>
+            <select id="company" name="companyId" required [(ngModel)]="selectedCompanyId">
+                <option [ngValue]="null" disabled selected> Select a company </option>
+                <option *ngFor="let c of companies" [ngValue]="c.id">
+                    {{ c.name }}
+                </option>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="roleTitle"> Role Tite *</label>
+            <input id="roleTitle" type="text" name="roleTitle" required [(ngModel)]="newApplication.roleTitle" />
+        </div>
+
+        <div class="form-field">
+            <label for="dateApplied"> Date Applied * </label>
+            <p class="field-hint">Please enter the date in the format <code>YYYY-MM-DD</code>.</p>
+            <input id="dateApplied" type="text" name="dateApplied" required [(ngModel)]="newApplication.dateApplied" />
+        </div>
+
+        <div class="form-field">
+            <label for="status">Status</label>
+            <select id="status" name="status" [(ngModel)]="newApplication.status">
+                <option value="">Select status</option>
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Offer">Offer</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+
+        <div class="form-field">
+            <label for="website"> Portal Link </label>
+            <input id="portalLink" type="url" name="portalLink" [(ngModel)]="newApplication.portalLink" />
+        </div>
+
+        <div class="form-field">
+            <label for="notes"> Notes </label>
+            <textarea id="notes" type="text" name="notes" rows="6" [(ngModel)]="newApplication.notes"></textarea>
+        </div>
+
+        <div class="actions">
+            <button type="submit" [disabled]="loading || !applicationForm.form.valid">
+                {{ loading ? 'Saving...': 'Create Application'}}
+            </button>
+            <button type="button" routerLink="/applications">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>

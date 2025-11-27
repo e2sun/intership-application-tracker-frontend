@@ -28,6 +28,8 @@ export class ApplicationService {
       return this.http.put<Application>(url, app);
     }
 
+    createApplication(application: Application): Observable<Application>{
+      return this.http.post<Application>(this.apiUrl, application);
+    }
 
-  
 }

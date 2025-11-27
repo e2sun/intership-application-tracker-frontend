@@ -2,7 +2,7 @@ import { Company } from "./company.model";
 
 
 export interface Application {
-    id: number,
+    id?: number,
     roleTitle: string,
     dateApplied: string,
     status: string,

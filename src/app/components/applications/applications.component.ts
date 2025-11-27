@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Application } from '../../models/application.model';
 import { ApplicationService } from '../../services/application.service';
 import { FormsModule } from '@angular/forms';  
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-applications',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   templateUrl: './applications.component.html',
   styleUrl: './applications.component.css'
