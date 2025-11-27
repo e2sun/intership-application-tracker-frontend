@@ -34,15 +34,15 @@ export class ApplicationsListComponent implements OnChanges{
     this.error = null;
 
     this.applicationService.getApplicationsByCompany(this.companyId).subscribe({
-    next: (data) => {
-        this.applications = data;
-        this.loading = false;
-    },
-    error: (err) => {
-        console.error('Error fetching applications', err);
-        this.error = 'Failed to load applications';
-        this.loading = false;
-    },
+      next: (data) => {
+          this.applications = data;
+          this.loading = false;
+      },
+      error: (err) => {
+          console.error('Error fetching applications', err);
+          this.error = 'Failed to load applications';
+          this.loading = false;
+      },
     });
   }
 
