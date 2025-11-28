@@ -26,5 +26,11 @@ export class CompanyService {
     return this.http.post<Company>(this.apiUrl, company);
   }
 
+  // deleteCompany
+  deleteCompany(id: number){
+    const url = `${this.apiUrl}/${id}`
+    return this.http.delete<void>(url);
+  }
+
 }
 

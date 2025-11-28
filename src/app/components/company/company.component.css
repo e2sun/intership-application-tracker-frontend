@@ -2,13 +2,13 @@
     max-width: 600px;
     margin: 1.5rem auto;
 }
-  
+
 .company-buttons {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
-  
+
 .company-button {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -20,24 +20,24 @@
     cursor: pointer;
     transition: background-color 0.15s ease, transform 0.05s ease, box-shadow 0.1s ease;
 }
-  
+
 .company-button:hover {
     background-color: #e8edf9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     transform: translateY(-1px);
 }
-  
+
 .company-button:active {
     transform: translateY(0);
     box-shadow: none;
 }
-  
+
 .status-text {
     text-align: center;
     margin-top: 0.5rem;
     color: #555;
 }
-  
+
 .status-text.error {
     color: #b00020;
 }
@@ -69,4 +69,18 @@
     font-weight: 700;
     color: #2c3e50;
 }
-  
+
+.company-delete-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem 0.3rem;
+    border-radius: 999px;
+    color: #9ca3af;
+    font-size: 0.8rem;
+}
+
+.company-delete-icon:hover {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
