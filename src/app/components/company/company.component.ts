@@ -53,30 +53,4 @@ export class CompanyComponent implements OnInit {
             return nameA.localeCompare(nameB);   // A–Z
         })
     }
-
-    onDeleteCompany(company:Company, event: MouseEvent): void {
-
-        event.stopPropagation();
-        event.preventDefault();
-        
-        if (!company.id) {
-            console.error('Cannot delete company without id', company);
-            return;
-        }
-
-        const confirmed = confirm(`Delete company "${company.name}" and all its applications?`);
-
-        if (!confirmed) return;
-
-        this.companyService.deleteCompany(company.id).subscribe({
-            next: () => {
-                this.companies = this.companies.filter(c => c.id !== company.id);
-            },
-            error: (err) => {
-                console.error('Failed to delete company', err);
-                this.error = 'Failed to delete company. Please try again.';
-            }
-        })
-    }
-
 }

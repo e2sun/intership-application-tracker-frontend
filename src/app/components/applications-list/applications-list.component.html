@@ -13,9 +13,8 @@
 
             <div class="app-meta">
                 <div> {{ application.dateApplied }} </div>
+                <a *ngIf="application.portalLink" [href]="application.portalLink" target="_blank"> Portal Link </a>
             </div>
-
-            <a *ngIf="application.portalLink" [href]="application.portalLink" target="_blank"> Portal Link </a>
 
             <p *ngIf="application.notes" class="app-notes"> Notes: {{ application.notes }} </p>
         </li>
