@@ -42,7 +42,13 @@
         
         <div class="applications-header">
             <h3 class="applications-title"> Applications </h3>
-            <button class="create-application-button" routerLink="/create-application"> Create Application </button>
+            <button 
+            class="create-application-button" 
+            [routerLink]="['/create-application']"
+            [queryParams]="{companyId: companyId}"
+            >
+             Create Application 
+            </button>
         </div>
         <app-applications-list [companyId]="companyId"></app-applications-list>
 

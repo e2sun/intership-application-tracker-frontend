@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicationService } from '../../services/application.service';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Application } from '../../models/application.model';
 import { CompanyService } from '../../services/company.service';
@@ -32,6 +32,8 @@ export class CreateApplicationComponent implements OnInit {
   companies: Company[] = [];
   selectedCompanyId: number | null = null;
 
+  private returnToCompanyId: number |  null = null;
+
   loading = false;
   error: string | null = null;
 
@@ -39,10 +41,22 @@ export class CreateApplicationComponent implements OnInit {
     private applicationService: ApplicationService,
     private companyService: CompanyService,
     private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.fetchCompanies();
+
+    this.route.queryParamMap.subscribe(params => {
+      const companyIdParam = params.get('companyId');
+      if (companyIdParam) {
+        const id = Number(companyIdParam);
+        if (!isNaN(id)){
+          this.selectedCompanyId = id;
+          this.returnToCompanyId = id;
+        }
+      }
+    })
   }
 
   fetchCompanies(): void {
@@ -93,7 +107,12 @@ export class CreateApplicationComponent implements OnInit {
     this.applicationService.createApplication(payload).subscribe({
       next: () => {
         this.loading = false;
-        this.router.navigate(['/applications']);
+
+        if (this.returnToCompanyId) {
+          this.router.navigate(['/companies', this.returnToCompanyId]);
+        } else{
+          this.router.navigate(['/applications']);
+        }
       },
       error: (err) => {
         console.error('Failed to create application', err);
