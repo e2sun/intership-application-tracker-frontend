@@ -143,21 +143,23 @@
     margin-top: 0.35rem;
 }
 
-/* meta row stays mostly the same but inline with button */
-/* footer row: date/link left, delete button right */
-.app-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.35rem;
+.icon-delete {
+    border: none;
+    background: transparent;
+    color: #dc2626;
+    font-size: 0.8rem;
+    padding: 0.25rem;
+    cursor: pointer;
 }
 
-/* meta row stays mostly the same but inline with button */
-.app-footer {
+.icon-delete:hover {
+    color: #b91c1c;
+}
+
+.actions-right {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 0.35rem;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /* stack date over link, left-aligned */
@@ -179,25 +181,6 @@
 .app-meta a:hover {
     text-decoration: underline;
 }
-
-/* delete button stays right */
-.delete-button {
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    border: 1px solid #fca5a5;
-    background-color: #fef2f2;
-    color: #b91c1c;
-    font-size: 0.8rem;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.delete-button:hover {
-    background-color: #fee2e2;
-    border-color: #f87171;
-}
-
-
 
 /* notes */
 .app-notes {
@@ -229,7 +212,6 @@
 .applications-header {
     display: flex;
     justify-content: space-between;
-    /* title left, buttons right */
     align-items: center;
     margin-bottom: 0.75rem;
 }
@@ -314,3 +296,39 @@
 .confirm-cancel:hover {
     background-color: #e5e7eb;
 }
+
+/* primary create button */
+.create-application-button {
+    padding: 0.35rem 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #d0d7de;
+    background-color: #f5f7fb;
+    cursor: pointer;
+    font-size: 0.85rem;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    /* space between + icon and text */
+}
+
+.create-application-button i {
+    font-size: 0.8rem;
+}
+
+.create-application-button:hover {
+    background-color: #e8edf9;
+}
+
+.applications-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* When sorting-buttons are inside the header, remove bottom margin */
+.applications-header .sorting-buttons {
+    margin-bottom: 0;
+    align-items: center;
+}
+  

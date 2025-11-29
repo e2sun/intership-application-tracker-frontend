@@ -20,10 +20,20 @@
     <div class="applications-header" *ngIf="!loading && !error">
         <h2>Applications</h2>
 
-        <div class="sorting-buttons" *ngIf="applications.length > 0">
-            <button (click)="sortByNewest()">Newest</button>
-            <button (click)="sortByOldest()">Oldest</button>
-            <button routerLink="/create-application"> Create Application </button>
+        <div class="applications-actions">
+            <div class="sorting-buttons" *ngIf="applications.length > 0">
+                <button (click)="sortByNewest()">Newest</button>
+                <button (click)="sortByOldest()">Oldest</button>
+            </div>
+
+            <button
+            class="create-application-button"
+            routerLink="/create-application"
+          >
+            <i class="fa-solid fa-plus"></i>
+            <span>Create application</span>
+          </button>
+          
         </div>
     </div>
 
@@ -44,14 +54,19 @@
                     </span>
                 </h3>
 
-                <div class="status-editor">
-                    <select class="status-select" [ngClass]="statusClass(application.status)"
-                        [(ngModel)]="application.status" (ngModelChange)="onStatusChange(application)">
-                        <option value="Applied">Applied</option>
-                        <option value="Interview">Interview</option>
-                        <option value="Offer">Offer</option>
-                        <option value="Rejected">Rejected</option>
-                    </select>
+                <div class="actions-right">
+                    <div class="status-editor">
+                        <select class="status-select" [ngClass]="statusClass(application.status)"
+                            [(ngModel)]="application.status" (ngModelChange)="onStatusChange(application)">
+                            <option value="Applied">Applied</option>
+                            <option value="Interview">Interview</option>
+                            <option value="Offer">Offer</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <button class="icon-delete" title="Delete Application" (click)="openDeleteConfirm(application)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>
             </div>
 
@@ -62,10 +77,6 @@
                         Portal Link
                     </a>
                 </div>
-
-                <button class="delete-button" (click)="openDeleteConfirm(application)">
-                    Delete application
-                </button>
             </div>
 
             <p *ngIf="application.notes" class="app-notes">

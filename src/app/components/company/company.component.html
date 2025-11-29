@@ -1,26 +1,24 @@
-
-<div class = "company-page">
+<div class="company-page">
 
   <div class="companies-header" *ngIf="!loading && !error">
     <h2>Companies</h2>
 
     <div class="create-company-button">
-      <button routerLink="/create-company">Create Company</button>
+      <button routerLink="/create-company">
+        <i class="fa-solid fa-plus"></i>
+        <span>Create Company</span>
+      </button>
     </div>
   </div>
-  
+
   <div *ngIf="loading"> Loading companies ...</div>
   <div *ngIf="error"> {{ error }} </div>
 
-  <div *ngIf = "!loading && !error && companies.length > 0" class="company-buttons">
-    <button 
-      class="company-button"
-      *ngFor= "let company of companies"
-      [routerLink] = "['/companies', company.id]"
-    >
-    <span class="company-button-text">
-      {{ company.name }}
-    </span>
+  <div *ngIf="!loading && !error && companies.length > 0" class="company-buttons">
+    <button class="company-button" *ngFor="let company of companies" [routerLink]="['/companies', company.id]">
+      <span class="company-button-text">
+        {{ company.name }}
+      </span>
     </button>
   </div>
 

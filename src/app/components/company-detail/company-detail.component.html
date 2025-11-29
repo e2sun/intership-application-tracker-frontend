@@ -23,8 +23,8 @@
     <div *ngIf="company" class="company-card">
         <div class="company-header">
             <h2 class="company-name"> {{ company.name }} </h2>
-            <button class="delete-button" (click)="openDeleteConfirm(company)">
-                Delete company
+            <button class="icon-delete" title="Delete Company" (click)="openDeleteConfirm(company)">
+                <i class="fa-solid fa-trash"></i>
             </button>
         </div>
         <p *ngIf="company.location" class="company-field">
@@ -47,7 +47,8 @@
             [routerLink]="['/create-application']"
             [queryParams]="{companyId: companyId}"
             >
-             Create Application 
+            <i class="fa-solid fa-plus"></i>
+            <span>Create Application</span>
             </button>
         </div>
         <app-applications-list [companyId]="companyId"></app-applications-list>
