@@ -41,3 +41,13 @@
     color: #ffffff;
     border-bottom-color: #ffffff;
 }
+
+.logo-link{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.logo-link:hover {
+    color: #f0f0f0;
+}
