@@ -98,11 +98,12 @@ http://localhost:8080/api
 
 ## 🖼️ Screenshots
 
-![Dashboard](screenshots/dashboard.png)
-![Companies](screenshots/companies.png)
-![Company Detail](screenshots/company_detail.png)
-![Applications List](screenshots/applications_list.png)
-![Create Forms](screenshots/create_forms.png)
+![Dashboard](Screenshots/dashboard.png)
+![Companies](Screenshots/companies.png)
+![Company Detail](Screenshots/company_detail.png)
+![Applications List](Screenshots/applications.png)
+![Add Company](Screenshots/add-company.png)
+![Add Application](Screenshots/add-application.png)
 
 ---
 
