@@ -1,59 +1,121 @@
-# InternTrackerUi
+# 📌 Internship Tracker — Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+This is the **frontend web application** for the Internship Tracker — a project designed to help track internship applications, companies, and progress across recruiting cycles.  
+Built with **Angular Standalone Components**, it provides a clean and responsive interface with full CRUD features.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
 
-```bash
-ng serve
+### 📁 Companies
+- View list of all companies  
+- Create companies  
+- Delete companies  
+- View company details  
+- Applications under each company shown in detail view  
+
+### 📝 Applications
+- View all applications  
+- Create applications  
+- Auto-select company when creating from the company page  
+- Update application status  
+- Delete applications with modal confirmation  
+- Sort by newest or oldest  
+- Color-coded status badges (Applied/Interview/Offer/Rejected)
+
+### 📊 Dashboard
+- Total companies  
+- Total applications  
+- Application counts by status  
+- Top companies ranked by number of applications  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Angular 17**
+- **TypeScript**
+- **Standalone Components**
+- **Template-driven forms**
+- **Angular Router**
+- **Font Awesome**
+- **Custom CSS**
+
+---
+
+## 📂 Project Structure
+```
+src/app/
+├── components/
+│   ├── dashboard/
+│   ├── company/
+│   ├── company-detail/
+│   ├── applications/
+│   ├── applications-list/
+│   ├── create-company/
+│   └── create-application/
+│
+├── services/
+│   ├── company.service.ts
+│   └── application.service.ts
+│
+├── models/
+│   ├── company.model.ts
+│   └── application.model.ts
+│
+└── app.routes.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## ▶️ Running the Frontend
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### 1️⃣ Install dependencies  
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 2️⃣ Start the dev server
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
+### 3️⃣ Open in browser
+```
+http://localhost:4200
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Backend must be running at http://localhost:8080.**
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+## 🔗 API Base URL
+```
+http://localhost:8080/api
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🖼️ Screenshots
 
-```bash
-ng e2e
-```
+![Dashboard](screenshots/dashboard.png)
+![Companies](screenshots/companies.png)
+![Company Detail](screenshots/company_detail.png)
+![Applications List](screenshots/applications_list.png)
+![Create Forms](screenshots/create_forms.png)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## ⭐ Future Enhancements
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- User authentication
+- Resume uploads per application
+- Detailed activity notes per company
+- Dark mode toggle
+- Filtering & advanced sorting
+
+---
+
+## 🏁 Status
+
+Stable, fully functional frontend for the Internship Tracker.
