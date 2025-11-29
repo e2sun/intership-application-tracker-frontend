@@ -3,6 +3,8 @@
 This is the **frontend web application** for the Internship Tracker — a project designed to help track internship applications, companies, and progress across recruiting cycles.  
 Built with **Angular Standalone Components**, it provides a clean and responsive interface with full CRUD features.
 
+> **Related Repository**: [Internship Tracker Backend (Spring Boot)](https://github.com/e2sun/internship-application-tracker)
+
 ---
 
 ## 🚀 Features
