@@ -5,6 +5,8 @@ Built with **Angular Standalone Components**, it provides a clean and responsive
 
 > **Related Repository**: [Internship Tracker Backend (Spring Boot)](https://github.com/e2sun/internship-application-tracker)
 
+Note: ChatGPT was used to assist in styling.
+
 ---
 
 ## 🚀 Features
